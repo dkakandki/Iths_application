@@ -17,8 +17,8 @@ class IthsApplicationTests {
 
 	@BeforeEach
     void Setup() {
-//		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-debugging-pipe");
 		driver = new ChromeDriver();
 		driver.get("https://www.iths.se");
 		driver.manage().window().maximize();
