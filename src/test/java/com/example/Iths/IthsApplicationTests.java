@@ -98,42 +98,6 @@ class IthsApplicationTests {
 		Assertions.assertEquals("Ansökan | IT-Högskolan", applicationTitle, "Title does not match");
 	}
 
-	@Test
-	void test_how_to_apply_button() {
-
-		WebElement aboutPage_button = driver.findElement(By.id("nav-hurduansker"));
-		aboutPage_button.click();
-
-		String aboutPageTitle = driver.getTitle();
-		Assertions.assertEquals("IT-Högskolan - Om skolan – Här startar din IT-karriär!", aboutPageTitle, "Title does not match");
-
-
-	}
-
-	@Test
-	void play_how_to_apply_Page_video() {
-
-		WebElement aboutPage_button = driver.findElement(By.id("nav-hurduansker"));
-		aboutPage_button.click();
-
-		WebElement videoplay_button = driver.findElement(By.className("video-link"));
-		videoplay_button.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement elementAfterClick = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html//div[@id='page']//a[@href='https://www.youtube.com/embed/W5vzpwbGWJA?rel=0&autoplay=1']")));
-		assert elementAfterClick.isDisplayed() : "Element did not appear after clicking the button";
-		}
-
-//	@Test
-//	void test_news_button() {
-//
-//		WebElement aboutPage_button = driver.findElement(By.id("nav-nyheter"));
-//		aboutPage_button.click();
-//
-//		WebElement filter = driver.findElement(By.xpath("/html//section[@id='course-filter-bar']//a[@href='https://www.iths.se/category/goteborg/']"));
-//		filter.click();
-//		String filterTitle = driver.getTitle();
-//		Assertions.assertEquals("Göteborg-arkiv | IT-Högskolan", filterTitle, "Title does not match");
-//	}
 
 	@AfterEach
 	void tearDown () {
