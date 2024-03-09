@@ -104,7 +104,6 @@ class IthsApplicationTests {
 		WebElement aboutPage_button = driver.findElement(By.id("nav-hurduansker"));
 		aboutPage_button.click();
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		String aboutPageTitle = driver.getTitle();
 		Assertions.assertEquals("IT-Högskolan - Om skolan – Här startar din IT-karriär!", aboutPageTitle, "Title does not match");
 
