@@ -22,6 +22,7 @@ class IthsApplicationTests {
 		driver = new ChromeDriver();
 		driver.get("https://www.iths.se");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		try {
 			WebElement cookieRejectButton = driver.findElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
 			cookieRejectButton.click();
