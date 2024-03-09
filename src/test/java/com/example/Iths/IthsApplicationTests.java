@@ -18,8 +18,9 @@ class IthsApplicationTests {
 	@BeforeEach
     void Setup() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--remote-debugging-pipe");
-		driver = new ChromeDriver();
+		options.addArguments("--headless");
+		options.addArguments("--disable-dev-shm-usage");
+		driver = new ChromeDriver(options);
 		driver.get("https://www.iths.se");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
