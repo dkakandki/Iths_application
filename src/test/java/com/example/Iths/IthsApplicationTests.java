@@ -3,6 +3,7 @@ package com.example.Iths;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,10 +17,11 @@ class IthsApplicationTests {
 
 	@BeforeEach
     void Setup() {
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
 		driver = new ChromeDriver();
 		driver.get("https://www.iths.se");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try {
 			WebElement cookieRejectButton = driver.findElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
 			cookieRejectButton.click();
