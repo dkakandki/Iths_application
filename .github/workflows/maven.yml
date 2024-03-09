@@ -1,0 +1,36 @@
+name: Maven Build and Selenium Tests on push
+
+on:
+  push:
+    branches: "main" 
+  pull_request:
+    branches: "main"
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        ref: main
+    
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: adopt
+
+    - name: Install ChromeDriver
+      run: |
+        wget https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.111/linux64/chromedriver-linux64.zip
+        unzip chromedriver-linux64.zip
+        cd chromedriver-linux64
+        chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin
+        
+    - name: Build and test with Maven
+      run: mvn test
+
+    

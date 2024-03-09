@@ -1,1 +1,2 @@
-# Iths_application
+# Iths
+project using java, selenium and cucumber 
