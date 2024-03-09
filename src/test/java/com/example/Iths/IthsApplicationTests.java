@@ -46,7 +46,7 @@ class IthsApplicationTests {
 		WebElement spring_information = driver.findElement(By.className("banner__text"));
 		spring_information.click();
 		String spring_informationTitle = driver.getTitle();
-		Assertions.assertEquals("Välkommen till vårens informationsträffar | IT-Högskolan!", spring_informationTitle, "Title does not match");
+		Assertions.assertEquals("Välkommen till vårens informationsträffar | IT-Högskolan", spring_informationTitle, "Title does not match");
 
 	}
 
