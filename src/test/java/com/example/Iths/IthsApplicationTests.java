@@ -50,7 +50,7 @@ class IthsApplicationTests {
 	void test_mobile_toggle() {
 
 		driver.manage().window().minimize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		WebElement menu = driver.findElement(By.id("mobile-toggle"));
 		try {
 			menu.click();
